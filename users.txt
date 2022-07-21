@@ -1,0 +1,10 @@
+{"id": 1, "name": "Admin", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 1}
+{"id": 2, "name": "Player1", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 3, "name": "test", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 4, "name": "test2", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 5, "name": "Player2", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 6, "name": "Player3", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 7, "name": "Player2", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 8, "name": "Player4", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": 9, "name": "Player5", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
+{"id": NaN, "name": "Player2", "password": "79c67254451d7d73943f87aba6489832", "score": 0, "admin": 0}
