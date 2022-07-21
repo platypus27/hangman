@@ -1,0 +1,12 @@
+add points per word solved
+
+admin functions
+- ability to remove users
+- clear points
+- gift points
+- add other admins
+- remove other admins
+
+leaderboard
+
+fix quitting the game
