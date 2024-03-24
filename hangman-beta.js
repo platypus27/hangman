@@ -2,33 +2,9 @@
 const fs = require('fs')
 const readline = require('readline-sync')
 const crypto = require('crypto');
+const config = require('./config.json')
 
-// configurations
-const hashprependConfig = "no password for u "
-const wonConfig = 0
-const triesConfig = 5
-const hintsConfig = 1
-const loginFailuresConfig = 3
-const menuMsgConfig = "\nWelcome to The HANGHANGMAN\n\nSelect an option\n1. Log In\n2. Play as Guest\n3. Create an Account\n4. Game Credits\n(Please enter the number): "
-const catquesConfig = `\nPlease choose a category`
-const enterNumberPromptConfig = "\n(Please enter the number): "
-const guessPromptConfig = "\nGuess a letter or the entire word: "
-const playAgainPromptConfig = "\nPlay again? (y/n): "
-const hintPromptConfig = "Would you like a hint? (y/n): "
-const wonMsgConfig = "\n\t--------------------\n\t-- You have won!! --\n\t--------------------"
-const lostMsgConfig = "\n\t-------------------\n\t-- You have lost --\n\t-------------------"
-const errorMsg1Config = "Please only enter an alphabet or a guess with the same length as the word"
-const errorMsg2Config = "Please enter y or n only"
-const errorMsg3Config = "\nPlease enter one of the above options"
-const errorMsg4Config = "\nUser has to be at least 4 characters and Password has to be at least 8 characters"
-const errorMsg5Config = "\nThis username is taken"
-const endMsgConfig = "END"
-const noDataConfig = "There is no data"
-const tryAgnConfig = "Please try again"
-const creditsConfig = "\n\nCredits\nAuthor: Ao Yu"
-const createUsernameConfig = "Please enter credentials\nUser: "
-const createUserpassConfig = "Password: "
-const confirmUserpassConfig = "Enter Password again: "
+
 const regex = /^[A-Za-z]+$/
 
 // declaration of values
@@ -44,25 +20,25 @@ var hint = new String
 var categoryChosen = new String
 
 // assigning configs to values
-var won = wonConfig
-var tries = triesConfig
-var hints = hintsConfig
-var catques = catquesConfig
-var loginFailures = loginFailuresConfig
-var enterNumberPrompt = enterNumberPromptConfig
-var guessPrompt = guessPromptConfig
-var playAgainPrompt = playAgainPromptConfig
-var hintPrompt = hintPromptConfig
+var won = config.wonConfig
+var tries = config.triesConfig
+var hints = config.hintsConfig
+var catques = config.catquesConfig
+var loginFailures = config.loginFailuresConfig
+var enterNumberPrompt = config.enterNumberPromptConfig
+var guessPrompt = config.guessPromptConfig
+var playAgainPrompt = config.playAgainPromptConfig
+var hintPrompt = config.hintPromptConfig
 
 // messages
-function wonMsg() {console.log(wonMsgConfig)}
-function lostMsg() {console.log(lostMsgConfig)}
-function errorMsg1() {console.log(errorMsg1Config)}
-function errorMsg2() {console.log(errorMsg2Config)}
+function wonMsg() {console.log(config.wonMsgConfig)}
+function lostMsg() {console.log(config.lostMsgConfig)}
+function errorMsg1() {console.log(config.errorMsg1Config)}
+function errorMsg2() {console.log(config.errorMsg2Config)}
 function triesLeftMsg(tries) {console.log(`You have ${tries} lives left`)}
-function endMsg() {console.log(endMsgConfig)}
-function noData() {throw new Error(noDataConfig)}
-function tryAgn() {console.log(tryAgnConfig)}
+function endMsg() {console.log(config.endMsgConfig)}
+function noData() {throw new Error(config.noDataConfig)}
+function tryAgn() {console.log(config.tryAgnConfig)}
 
 // reading dictionary from file
 function readDict() {
@@ -80,7 +56,7 @@ function readDict() {
 
 // main menu
 function menu() {
-    var choice = readline.question(menuMsgConfig)
+    var choice = readline.question(config.menuMsgConfig)
     switch (choice) {
     case "1":
         login();
@@ -92,18 +68,18 @@ function menu() {
         createUser();
         break;
     case "4":
-        console.log(creditsConfig)
+        console.log(config.creditsConfig)
         menu()
         break;
     default:
-        console.log(errorMsg3Config)
-        var choice = readline.question(menuMsgConfig)
+        console.log(config.errorMsg3Config)
+        var choice = readline.question(config.menuMsgConfig)
     }
 }
 
 // hashing password
 function hashencrypt(password) {
-    password = hashprependConfig + password
+    password = config.hashprependConfig + password
     password = crypto.createHash('md5').update(password).digest('hex')
     return password
 }
@@ -115,15 +91,15 @@ function createUser() {
         noData()
     }
     else {
-        var createUsername = readline.question(createUsernameConfig)
-        var createUserpass = readline.question(createUserpassConfig)
-        var confirmUserpass = readline.question(confirmUserpassConfig)
+        var createUsername = readline.question(config.createUsernameConfig)
+        var createUserpass = readline.question(config.createUserpassConfig)
+        var confirmUserpass = readline.question(config.confirmUserpassConfig)
         loginCreds = data.split('\n')
         for (i = 0; i < loginCreds.length; i++) {
             loginCreds[i] = JSON.parse(loginCreds[i])
             var newId = loginCreds[loginCreds.length - 1].id + 1
             if (createUsername == loginCreds[i].name) {
-                console.log(errorMsg5Config)
+                console.log(config.errorMsg5Config)
                 createUser()
             }
         }
@@ -131,7 +107,7 @@ function createUser() {
                 var data = fs.appendFileSync("users.txt", `\n{"id": ${newId}, "name": "${createUsername}", "password": "${hashencrypt(createUserpass)}", "score": 0, "admin": 0}`);
         }
         else {
-            console.log(errorMsg4Config)
+            console.log(config.errorMsg4Config)
         }
     }
 }
@@ -168,10 +144,10 @@ function reset() {
     selecteddictionary = []
     arrayOfChosenWord = []
     wordLinesArray = []
-    catques = catquesConfig
-    won = wonConfig
-    tries = triesConfig
-    hints = hintsConfig
+    catques = config.catquesConfig
+    won = config.wonConfig
+    tries = config.triesConfig
+    hints = config.hintsConfig
 }
 
 // for replaying of game
