@@ -32,9 +32,9 @@ Start the server
 
 ## User Accounts
 
-User: Player1
-User: Player2
-User: Player3
-User: Admin
-
+User: Player1  
+User: Player2  
+User: Player3  
+User: Admin  
+    
 Password: password
