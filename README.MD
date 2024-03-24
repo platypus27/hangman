@@ -1,5 +1,5 @@
 
-# Project Title
+# HANGMAN
 
 simple terminal hangman game in javascript
 
