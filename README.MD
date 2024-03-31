@@ -1,5 +1,5 @@
 
-# HANGMAN
+# HANGMAN (stable)
 
 simple terminal hangman game in javascript
 
