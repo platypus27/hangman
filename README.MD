@@ -1,6 +1,7 @@
 
 # HANGMAN (beta)
 Fundamentals of Programming project for polytechnic year 1  
+first programming project lol pls dont bash  
 simple terminal hangman game in javascript
 
 
