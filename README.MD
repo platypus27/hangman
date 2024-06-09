@@ -1,6 +1,6 @@
 
 # HANGMAN (beta)
-Fundamentals of Programming project for polytechnic year 1
+Fundamentals of Programming project for polytechnic year 1  
 simple terminal hangman game in javascript
 
 
